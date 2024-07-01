@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Unit\\Entities\\DogTest::testShouldDoRunningSuccessfuly":7},"times":{"Unit\\Entities\\DogTest::testMakeSound":0.008,"Unit\\Entities\\DogTest::testShouldMakeSoundSuccessfuly":0.007,"Unit\\Entities\\DogTest::testShouldDoRunningSuccessfuly":0}}

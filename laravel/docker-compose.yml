@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-laravel
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - .:/app
+    networks:
+      - local
+    depends_on:
+      - php82
+    # platform: linux/arm64
+
+  php82:
+    container_name: php82-laravel
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_STAGE: 'dev'
+    volumes:
+      - .:/app
+    networks:
+      - local
+    ports:
+      - "9000:9000"
+    # platform: linux/arm64
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-laravel
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pass
+    command: mongod --maxConns 10000
+    ports:
+      - "27017:27017"
+    networks:
+      - local
+    volumes:
+      - mongo:/data/db
+    # platform: linux/arm64
+
+volumes:
+  mongo:
+
+networks:
+  local:
+    driver: bridge

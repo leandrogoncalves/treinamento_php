@@ -1,0 +1,29 @@
+{
+    "name": "leandrogoncalves/php_basic_project",
+    "description": "Meu primeiro projeto PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Unit\\": "tests/Unit"
+        }
+    },
+    "authors": [
+        {
+            "name": "Leandro Gonçalves",
+            "email": "php@dev.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "mongodb/mongodb": "^1.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.3@dev"
+    }
+}
