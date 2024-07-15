@@ -617,44 +617,83 @@ A estrutura de pastas e arquivos de um projeto Laravel é organizada de maneira 
 
 Raiz do Projeto
 app/: Contém o código principal da aplicação.
+
 |---Console/: Contém os comandos Artisan.
+
 |---Exceptions/: Contém os handlers para exceções.
+
 |---Http/: Contém controladores, middleware e requests.
+
 |-------Controllers/: Controladores da aplicação.
+
 |-------Middleware/: Middleware da aplicação.
+
 |-------Requests/: Requests customizados (form requests).
+
 |---Models/: Modelos da aplicação.
+
 bootstrap/: Contém os arquivos para inicialização do framework.
+
 |---cache/: Armazena arquivos de cache gerados pelo framework.
+
 config/: Contém todos os arquivos de configuração da aplicação.
+
 database/: Contém migrações, factories e seeders.
+
 |---factories/: Contém as factories para gerar dados fictícios.
+
 |---migrations/: Contém as migrações de banco de dados.
+
 |---seeders/: Contém os seeders para popular o banco de dados.
+
 public/: Diretório acessível publicamente. Contém o arquivo index.php, assets (CSS, JavaScript, imagens).
+
 resources/: Contém views, arquivos de idioma, e assets não compilados.
+
 |---views/: Contém as views Blade da aplicação.
+
 |---lang/: Contém arquivos de tradução.
+
 routes/: Contém todos os arquivos de rotas da aplicação.
+
 web.php: Rotas da aplicação acessíveis via web.
+
 api.php: Rotas da API.
+
 console.php: Rotas para comandos Artisan.
+
 channels.php: Rotas para canais de broadcast.
+
 storage/: Contém arquivos gerados pela aplicação.
+
 |---app/: Armazena arquivos gerados pela aplicação.
+
 |---framework/: Contém arquivos gerados pelo framework (cache, sessões, views compiladas).
+
 |---logs/: Contém arquivos de log.
+
 tests/: Contém testes unitários e de funcionalidade.
+
 |---Feature/: Testes de funcionalidade.
+
 |---Unit/: Testes unitários.
+
 vendor/: Contém os pacotes e dependências instaladas via Composer.
+
 Arquivos Importantes na Raiz do Projeto
+
 .env: Arquivo de configuração de ambiente. Contém variáveis de ambiente sensíveis.
+
 .env.example: Exemplo do arquivo de configuração de ambiente.
+
 artisan: Interface de linha de comando do Laravel.
+
 composer.json: Arquivo de configuração do Composer. Lista as dependências do projeto.
+
 package.json: Arquivo de configuração do NPM. Lista as dependências JavaScript do projeto.
+
 webpack.mix.js: Arquivo de configuração do Laravel Mix para compilação de assets.
+
 Essa estrutura modulariza e organiza o código, facilitando a manutenção e escalabilidade da aplicação.
 
 <a id="Configurações_iniciais_do_Laravel"></a>
