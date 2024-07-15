@@ -6,9 +6,12 @@ RUN apk --no-cache add autoconf build-base libtool
 # Instale a extensão PCOV
 RUN pecl install pcov && docker-php-ext-enable pcov
 
+# Instale a extensão Mysql
+RUN docker-php-ext-install pdo pdo_mysql
+
 # Instale a extensão MongoDB
-RUN pecl install mongodb
-RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
+#RUN pecl install mongodb
+#RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 
 # Limpe o cache
 RUN apk del autoconf build-base libtool

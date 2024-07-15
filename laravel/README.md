@@ -42,141 +42,6 @@
 
 [#### Criando um controlador](#Criando_um_controlador)
 
-[##### Métodos principais dos controladores para APIs Rest](#Metodos_principais_dos_controladores_para_APIs_Rest)
-
-
-[## Trabalhando com Banco de Dados e Eloquent ORM](#Trabalhando_com_Banco_Dados_e_Eloquent_ORM)
-
-
-[### Configurando o Banco de Dados](#Configurando_o_Banco_de_Dados)
-
-[#### Conexão com o banco de dados](#Conexao_com_o_banco_de_dados)
-
-[##### Configuração do arquivo .env](#Configuracao_do_arquivo__env)
-
-
-[### Introdução ao Eloquent ORM](#Introducao_ao_Eloquent_ORM)
-
-[#### O que é Eloquent?](#O_que_e_Eloquent)
-
-[##### Definindo modelos e relacionamentos](#Definindo_modelos_e_relacionamentos)
-
-
-[## Operações CRUD com APIs Rest](#Operações_CRUD_com_APIs_Rest)
-
-
-[### Criando Endpoints de Leitura](#Criando_Endpoints_de_Leitura)
-
-[#### Implementação do método GET](#Implementacao_do_metodo_GET)
-
-[##### Filtros e Paginação](#Filtros_e_Paginacao)
-
-
-[### Criando Endpoints de Criação](#Criando_Endpoints_de_Criacao)
-
-[#### Implementação do método POST](#Implementacao_do_metodo_POST)
-
-[##### Validação de dados com Request](#Validacao_de_dados_com_Request)
-
-
-[### Criando Endpoints de Atualização](#Criando_Endpoints_de_Atualizacao)
-
-[#### Implementação do método PUT/PATCH](#Implementação_do_método_PUT_PATCH)
-
-[##### Manipulação de dados parciais e completos](#Manipulacao_de_dados_parciais_e_completos)
-
-
-[### Criando Endpoints de Exclusão](#Criando_Endpoints_de_Exclusao)
-
-[#### Implementação do método DELETE](#Implementação_do_método_DELETE)
-
-[##### Tratamento de erros e respostas apropriadas](#Tratamento_de_erros_e_respostas_apropriadas)
-
-
-[## Autenticação e Autorização](#Autenticação_e_Autorizacao)
-
-
-[### Introdução ao Passport e Sanctum](#Introdução_ao_Passport_e_Sanctum)
-
-[#### Escolhendo o pacote de autenticação adequado](#Escolhendo_o_pacote_de_autenticação_adequado)
-
-[##### Configurando o Laravel Passport](#Configurando_o_Laravel_Passport)
-
-
-[### Implementando Autenticação JWT](#Implementando_Autenticacao_JWT)
-
-[#### Configurando e utilizando JSON Web Tokens](#Configurando_e_utilizando_JSON_Web_Tokens)
-
-[##### Protegendo rotas com middleware de autenticação](#Protegendo_rotas_com_middleware_de_autenticacao)
-
-
-[## Tratamento de Erros e Respostas](#Tratamento_de_Erros_e_Respostas)
-
-
-[### Tratamento de Erros](#Tratamento_de_Erros)
-
-[#### Personalizando respostas de erro](#Personalizando_respostas_de_erro)
-
-[##### Centralizando o tratamento de exceções](#Centralizando_o_tratamento_de_exceções)
-
-
-[### Formatação de Respostas JSON](#Formatacao_de_Respostas_JSON)
-
-[#### Utilização de resources no Laravel](#Utilizacao_de_resources_no_Laravel)
-
-[##### Serialização de dados e inclusão de metadados](#Serializacao_de_dados_e_inclusão_de_metadados)
-
-
-[## Documentação da API](#Documentacao_da_API)
-
-
-[### Introdução ao Swagger](#Introducao_ao_Swagger)
-
-[#### Configurando o Swagger no Laravel](#Configurando_o_Swagger_no_Laravel)
-
-[##### Documentando endpoints e modelos](#Documentando_endpoints_e_modelos)
-
-
-[### Utilizando o Laravel API Documentation Generator](#Utilizando_o_Laravel_API_Documentation_Generator)
-
-[#### Automatizando a documentação com o pacote Laravel API Documentation Generator](#Automatizando_a_documentacao_com_o_pacote_Laravel_API_Documentation_Generator)
-
-[##### Boas práticas na escrita de documentação](#Boas_práticas_na_escrita_de_documentacao)
-
-
-[## Testes de APIs](#Testes_de_APIs)
-
-
-[### Testes Unitários](#Testes_Unitarios)
-
-[#### Introdução aos testes no Laravel](#Introducao_aos_testes_no_Laravel)
-
-[##### Escrevendo testes unitários para controladores e modelos](#Escrevendo_testes_unitarios_para_controladores_e_modelos)
-
-
-[### Testes de Integração](#Testes_de_Integracao)
-
-[#### Escrevendo testes de integração para APIs Rest](#Escrevendo_testes_de_integracao_para_APIs_Rest)
-
-[##### Utilizando o PHPUnit para testes automatizados](#Utilizando_o_PHPUnit_para_testes_automatizados)
-
-
-[## Desempenho e Segurança](#Desempenho_e_Segurança)
-
-
-[### Otimizando Desempenho](Otimizando_Desempenho)
-
-[#### Caching no Laravel](#Caching_no_Laravel)
-
-[##### Melhorando a performance da API](#Melhorando_a_performance_da_API)
-
-
-[### Segurança em APIs](#Segurança_em_APIs)
-
-[#### Protegendo contra ataques comuns (SQL Injection, XSS, CSRF)](#Protegendo_contra_ataques_comuns)
-
-[##### Implementando políticas de segurança e boas práticas](#Implementando_politicas_de_seguranca_e_boas_praticas)
-
 
 <a id="Introducao_ao_Laravel_e_APIs_Rest"></a>
 
@@ -748,9 +613,129 @@ Mantenha a consistência em todos os aspectos do design da API, incluindo nomenc
 
 #### Estrutura de pastas e arquivos do Laravel
 
+A estrutura de pastas e arquivos de um projeto Laravel é organizada de maneira a facilitar o desenvolvimento de aplicações web, seguindo o padrão MVC (Model-View-Controller). Aqui está uma visão geral da estrutura padrão de diretórios e arquivos:
+
+Raiz do Projeto
+app/: Contém o código principal da aplicação.
+|---Console/: Contém os comandos Artisan.
+|---Exceptions/: Contém os handlers para exceções.
+|---Http/: Contém controladores, middleware e requests.
+|-------Controllers/: Controladores da aplicação.
+|-------Middleware/: Middleware da aplicação.
+|-------Requests/: Requests customizados (form requests).
+|---Models/: Modelos da aplicação.
+bootstrap/: Contém os arquivos para inicialização do framework.
+|---cache/: Armazena arquivos de cache gerados pelo framework.
+config/: Contém todos os arquivos de configuração da aplicação.
+database/: Contém migrações, factories e seeders.
+|---factories/: Contém as factories para gerar dados fictícios.
+|---migrations/: Contém as migrações de banco de dados.
+|---seeders/: Contém os seeders para popular o banco de dados.
+public/: Diretório acessível publicamente. Contém o arquivo index.php, assets (CSS, JavaScript, imagens).
+resources/: Contém views, arquivos de idioma, e assets não compilados.
+|---views/: Contém as views Blade da aplicação.
+|---lang/: Contém arquivos de tradução.
+routes/: Contém todos os arquivos de rotas da aplicação.
+web.php: Rotas da aplicação acessíveis via web.
+api.php: Rotas da API.
+console.php: Rotas para comandos Artisan.
+channels.php: Rotas para canais de broadcast.
+storage/: Contém arquivos gerados pela aplicação.
+|---app/: Armazena arquivos gerados pela aplicação.
+|---framework/: Contém arquivos gerados pelo framework (cache, sessões, views compiladas).
+|---logs/: Contém arquivos de log.
+tests/: Contém testes unitários e de funcionalidade.
+|---Feature/: Testes de funcionalidade.
+|---Unit/: Testes unitários.
+vendor/: Contém os pacotes e dependências instaladas via Composer.
+Arquivos Importantes na Raiz do Projeto
+.env: Arquivo de configuração de ambiente. Contém variáveis de ambiente sensíveis.
+.env.example: Exemplo do arquivo de configuração de ambiente.
+artisan: Interface de linha de comando do Laravel.
+composer.json: Arquivo de configuração do Composer. Lista as dependências do projeto.
+package.json: Arquivo de configuração do NPM. Lista as dependências JavaScript do projeto.
+webpack.mix.js: Arquivo de configuração do Laravel Mix para compilação de assets.
+Essa estrutura modulariza e organiza o código, facilitando a manutenção e escalabilidade da aplicação.
+
 <a id="Configurações_iniciais_do_Laravel"></a>
 
 ##### Configurações iniciais do Laravel
+
+Após feita a instação e configuração do banco de dados do Laravel execute os passos abaixo:
+
+* Executar Migrações
+Crie as tabelas necessárias no banco de dados executando as migrações:
+
+```bash
+php artisan migrate
+```
+
+* Instalar Dependências Frontend
+Instale as dependências JavaScript e compile os assets:
+
+
+```bash
+npm install
+npm run dev
+```
+
+* Servir a Aplicação
+Inicie o servidor de desenvolvimento:
+
+```bash
+php artisan serve
+```
+
+A aplicação estará disponível no endereço http://127.0.0.1:8000.
+
+Passos Adicionais (Opcional)
+
+Configuração de Autenticação
+
+Para adicionar autenticação à sua aplicação, você pode usar o Laravel Breeze ou Laravel Jetstream. Vamos usar o Laravel Breeze como exemplo:
+
+Instale o Breeze via Composer:
+
+```bash
+composer require laravel/breeze --dev
+```
+
+Execute o instalador do Breeze:
+
+```bash
+php artisan breeze:install
+```
+
+Compile os assets novamente:
+
+```bash
+npm install
+npm run dev
+```
+
+Execute as migrações novamente para criar as tabelas necessárias para autenticação:
+
+```bash
+php artisan migrate
+```
+
+Configuração do Versionamento de Código
+
+Se você estiver usando Git para controle de versão, inicialize um repositório Git no diretório do seu projeto:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+Adicione um repositório remoto (por exemplo, no GitHub):
+
+```bash
+git remote add origin https://github.com/seu-usuario/nome-do-repositorio.git
+git push -u origin master
+```
+
 
 <a id="Primeiros_Passos_com_Rotas_e_Controladores"></a>
 
@@ -758,244 +743,472 @@ Mantenha a consistência em todos os aspectos do design da API, incluindo nomenc
 
 <a id="Introducao_as_Rotas_no_Laravel"></a>
 
-### Introdução às Rotas no Laravel
+### Introdução à API REST no Laravel
+
+Vamos criar um exemplo completo de API Rest para gestão de usuários, para isto siga os passos a seguir:
+
+1. Crie um modelo e uma migração para o recurso User:
+
+```bash
+php artisan make:model User -m
+```
+
+No arquivo de migração criado em database/migrations/xxxx_xx_xx_create_users_table.php, defina a estrutura da tabela users:
+
+```php
+public function up()
+{
+    Schema::create('users', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->string('email')->unique();
+        $table->string('password');
+        $table->timestamps();
+    });
+}
+```
+
+2. Execute a migração dentro do container:
+
+```bash
+docker exec -it <nome-do-container> sh -c "php artisan migrate"
+```
+<a id="Criando_Controladores"></a>
+
+#### Criando Controladores
+
+
+Crie um controlador de API para gerenciar as operações CRUD do recurso User:
+
+```bash
+php artisan make:controller API/UserController --api
+```
+Esse comando irá criar o Controller com todos os métodos necessários no Crud
+
 
 <a id="Definindo_rotas_básicas"></a>
 
 #### Definindo rotas básicas
 
-<a id="Uso_de_rotas_para_APIs"></a>
+Abra o arquivo routes/api.php e adicione as rotas para o controlador UserController:
+
+```php
+use App\Http\Controllers\API\UserController;
 
-##### Uso de rotas para APIs
+Route::apiResource('users', UserController::class);
+```
+
+#### Criar Serviço de Usuário
+Crie uma pasta Services dentro de app e adicione um arquivo UserService.php:
+
+```bash
+mkdir app/Services
+touch app/Services/UserService.php
+```
 
-<a id="Criando_Controladores"></a>
+No arquivo app/Services/UserService.php, defina o serviço:
 
-### Criando Controladores
+```php
+<?php
 
-<a id="Criando_um_controlador"></a>
+namespace App\Services;
 
-#### Criando um controlador
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
-<a id="Metodos_principais_dos_controladores_para_APIs_Rest"></a>
+class UserService
+{
+    public function getAllUsers()
+    {
+        return User::all();
+    }
 
-##### Métodos principais dos controladores para APIs Rest
+    public function getUserById($id)
+    {
+        return User::find($id);
+    }
 
-<a id="Trabalhando_com_Banco_Dados_e_Eloquent_ORM"></a>
+    public function createUser(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
 
-## Trabalhando com Banco de Dados e Eloquent ORM
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
 
-<a id="Configurando_o_Banco_de_Dados"></a>
+        return User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+    }
 
-### Configurando o Banco de Dados
+    public function updateUser(Request $request, $id)
+    {
+        $user = User::find($id);
 
-<a id="Conexao_com_o_banco_de_dados"></a>
+        if (is_null($user)) {
+            return null;
+        }
 
-#### Conexão com o banco de dados
+        $validator = Validator::make($request->all(), [
+            'name' => 'sometimes|string|max:255',
+            'email' => 'sometimes|string|email|max:255|unique:users,email,' . $id,
+            'password' => 'sometimes|string|min:8',
+        ]);
 
-<a id="Configuracao_do_arquivo__env"></a>
+        if ($validator->fails()) {
+            return $validator->errors();
+        }
 
-##### Configuração do arquivo .env
+        if ($request->has('name')) {
+            $user->name = $request->name;
+        }
 
-<a id="Introducao_ao_Eloquent_ORM"></a>
+        if ($request->has('email')) {
+            $user->email = $request->email;
+        }
 
-### Introdução ao Eloquent ORM
+        if ($request->has('password')) {
+            $user->password = Hash::make($request->password);
+        }
 
-<a id="O_que_e_Eloquent"></a>
+        $user->save();
 
-#### O que é Eloquent?
+        return $user;
+    }
 
-<a id="Definindo_modelos_e_relacionamentos"></a>
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
 
-##### Definindo modelos e relacionamentos
+        if (is_null($user)) {
+            return null;
+        }
 
-<a id="Operações_CRUD_com_APIs_Rest"></a>
+        $user->delete();
 
-## Operações CRUD com APIs Rest
+        return $user;
+    }
+}
+```
 
-<a id="Criando_Endpoints_de_Leitura"></a>
+#### Implementar Controlador
 
-### Criando Endpoints de Leitura
+No arquivo app/Http/Controllers/API/UserController.php, injete o serviço UserService e use-o para implementar os métodos CRUD:
 
-<a id="Implementacao_do_método_GET"></a>
+```php
+<?php
 
-#### Implementação do método GET
+namespace App\Http\Controllers\API;
 
-<a id="Filtros_e_Paginacao"></a>
+use App\Http\Controllers\Controller;
+use App\Services\UserService;
+use Illuminate\Http\Request;
 
-##### Filtros e Paginação
+class UserController extends Controller
+{
+    protected $userService;
 
-<a id="Criando_Endpoints_de_Criacao"></a>
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
 
-### Criando Endpoints de Criação
+    public function index()
+    {
+        return response()->json($this->userService->getAllUsers(), 200);
+    }
 
-<a id="Implementacao_do_metodo_POST"></a>
+    public function store(Request $request)
+    {
+        $result = $this->userService->createUser($request);
 
-#### Implementação do método POST
+        if (is_array($result) && array_key_exists('email', $result)) {
+            return response()->json($result, 400);
+        }
 
-<a id="Validacao_de_dados_com_Request"></a>
+        return response()->json($result, 201);
+    }
 
-##### Validação de dados com Request
+    public function show($id)
+    {
+        $user = $this->userService->getUserById($id);
 
-<a id="Criando_Endpoints_de_Atualizacao"></a>
+        if (is_null($user)) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
 
-### Criando Endpoints de Atualização
+        return response()->json($user, 200);
+    }
 
-<a id="Implementação_do_método_PUT_PATCH"></a>
+    public function update(Request $request, $id)
+    {
+        $result = $this->userService->updateUser($request, $id);
 
-#### Implementação do método PUT/PATCH
+        if (is_null($result)) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
 
-<a id="Manipulacao_de_dados_parciais_e_completos"></a>
+        if (is_array($result) && array_key_exists('email', $result)) {
+            return response()->json($result, 400);
+        }
 
-##### Manipulação de dados parciais e completos
+        return response()->json($result, 200);
+    }
 
-<a id="Criando_Endpoints_de_Exclusao"></a>
+    public function destroy($id)
+    {
+        $result = $this->userService->deleteUser($id);
 
-### Criando Endpoints de Exclusão
+        if (is_null($result)) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
 
-<a id="Implementação_do_método_DELETE"></a>
+        return response()->json(null, 204);
+    }
+}
+```
 
-#### Implementação do método DELETE
+#### Testar as Rotas da API
 
-<a id="Tratamento_de_erros_e_respostas_apropriadas"></a>
+Para testar as rotas, você pode usar ferramentas como Postman, Insomnia ou cURL.
 
-##### Tratamento de erros e respostas apropriadas
+Listar Usuários
 
-<a id="Autenticação_e_Autorizacao"></a>
+```http
+GET /api/users
+```
 
-## Autenticação e Autorização
+Criar Usuário
 
-<a id="Introdução_ao_Passport_e_Sanctum"></a>
+```http
+POST /api/users
+Content-Type: application/json
 
-### Introdução ao Passport e Sanctum
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "secret123"
+}
+```
 
-<a id="Escolhendo_o_pacote_de_autenticação_adequado"></a>
+Mostrar Usuário
 
-#### Escolhendo o pacote de autenticação adequado
+```http
+GET /api/users/{id}
+```
 
-<a id="Configurando_o_Laravel_Passport"></a>
+Atualizar Usuário
 
-##### Configurando o Laravel Passport
+```http
+PUT /api/users/{id}
+Content-Type: application/json
 
-<a id="Implementando_Autenticacao_JWT"></a>
+{
+    "name": "Jane Doe"
+}
+```
 
-### Implementando Autenticação JWT
+Deletar Usuário
 
-<a id="Configurando_e_utilizando_JSON_Web_Tokens"></a>
+```http
+DELETE /api/users/{id}
+```
 
-#### Configurando e utilizando JSON Web Tokens (JWT)
+#### Conclusão
 
-<a id="Protegendo_rotas_com_middleware_de_autenticacao"></a>
+Seguindo esses passos, você configurou um recurso de API em Laravel com operações CRUD completas para o modelo User, utilizando uma camada de serviço. Essa abordagem melhora a organização e a manutenção do código, separando a lógica de negócios dos controladores.
 
-##### Protegendo rotas com middleware de autenticação
 
-<a id="Tratamento_de_Erros_e_Respostas"></a>
+## Criando Testes Unitários para o Serviço UserService Usando Mock no Projeto Laravel
 
-## Tratamento de Erros e Respostas
+1. Instalar PHPUnit
+Se ainda não estiver instalado, instale o PHPUnit, que já vem por padrão com Laravel:
 
-<a id="Tratamento_de_Erros"></a>
+```bash
+composer require --dev phpunit/phpunit
+```
 
-### Tratamento de Erros
+2. Configurar PHPUnit
+Certifique-se de que o arquivo phpunit.xml está configurado corretamente para o ambiente de teste.
 
-<a id="Personalizando_respostas_de_erro"></a>
+3. Criar Teste para UserService
+Crie um diretório Services dentro de tests/Unit e adicione um arquivo UserServiceTest.php:
 
-#### Personalizando respostas de erro
+```bash
+mkdir -p tests/Unit/Services
+touch tests/Unit/Services/UserServiceTest.php
+```
 
-<a id="Centralizando_o_tratamento_de_exceções"></a>
+No arquivo tests/Unit/Services/UserServiceTest.php, defina os testes unitários para cada método do serviço UserService:
 
-##### Centralizando o tratamento de exceções
+```php
+<?php
 
-<a id="Formatacao_de_Respostas_JSON"></a>
+namespace Tests\Unit\Services;
 
-### Formatação de Respostas JSON
+use App\Models\User;
+use App\Services\UserService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Mockery;
+use Tests\TestCase;
 
-<a id="Utilizacao_de_resources_no_Laravel"></a>
+class UserServiceTest extends TestCase
+{
+    use RefreshDatabase;
 
-#### Utilização de resources no Laravel
+    protected $userService;
 
-<a id="Serializacao_de_dados_e_inclusão_de_metadados"></a>
+    protected function setUp(): void
+    {
+        parent::setUp();
 
-##### Serialização de dados e inclusão de metadados
+        $this->userService = new UserService();
+    }
 
-<a id="Documentacao_da_API"></a>
+    public function testGetAllUsers()
+    {
+        User::factory()->count(3)->create();
 
-## Documentação da API
+        $result = $this->userService->getAllUsers();
 
-<a id="Introducao_ao_Swagger"></a>
+        $this->assertCount(3, $result);
+    }
 
-### Introdução ao Swagger
+    public function testGetUserById()
+    {
+        $user = User::factory()->create();
 
-<a id="Configurando_o_Swagger_no_Laravel"></a>
+        $result = $this->userService->getUserById($user->id);
 
-#### Configurando o Swagger no Laravel
+        $this->assertEquals($user->id, $result->id);
+    }
 
-<a id="Documentando_endpoints_e_modelos"></a>
+    public function testCreateUser()
+    {
+        $request = Request::create('/api/users', 'POST', [
+            'name' => 'John Doe',
+            'email' => 'john@example.com',
+            'password' => 'secret123'
+        ]);
 
-##### Documentando endpoints e modelos
+        $result = $this->userService->createUser($request);
 
-<a id="Utilizando_o_Laravel_API_Documentation_Generator"></a>
+        $this->assertInstanceOf(User::class, $result);
+        $this->assertEquals('John Doe', $result->name);
+        $this->assertEquals('john@example.com', $result->email);
+        $this->assertTrue(Hash::check('secret123', $result->password));
+    }
 
-### Utilizando o Laravel API Documentation Generator
+    public function testCreateUserValidationFails()
+    {
+        $request = Request::create('/api/users', 'POST', [
+            'name' => '',
+            'email' => 'invalid-email',
+            'password' => 'short'
+        ]);
 
-<a id="Automatizando_a_documentacao_com_o_pacote_Laravel_API_Documentation_Generator"></a>
+        $result = $this->userService->createUser($request);
 
-#### Automatizando a documentação com o pacote Laravel API Documentation Generator
+        $this->assertIsArray($result);
+        $this->assertArrayHasKey('email', $result);
+        $this->assertArrayHasKey('password', $result);
+    }
 
-<a id="Boas_práticas_na_escrita_de_documentacao"></a>
+    public function testUpdateUser()
+    {
+        $user = User::factory()->create();
 
-##### Boas práticas na escrita de documentação
+        $request = Request::create('/api/users/' . $user->id, 'PUT', [
+            'name' => 'Jane Doe'
+        ]);
 
-<a id="Testes_de_APIs"></a>
+        $result = $this->userService->updateUser($request, $user->id);
 
-## Testes de APIs
+        $this->assertEquals('Jane Doe', $result->name);
+    }
 
-<a id="Testes_Unitarios"></a>
+    public function testUpdateUserNotFound()
+    {
+        $request = Request::create('/api/users/999', 'PUT', [
+            'name' => 'Jane Doe'
+        ]);
 
-### Testes Unitários
+        $result = $this->userService->updateUser($request, 999);
 
-<a id="Introducao_aos_testes_no_Laravel"></a>
+        $this->assertNull($result);
+    }
 
-#### Introdução aos testes no Laravel
+    public function testDeleteUser()
+    {
+        $user = User::factory()->create();
 
-<a id="Escrevendo_testes_unitarios_para_controladores_e_modelos"></a>
+        $result = $this->userService->deleteUser($user->id);
 
-##### Escrevendo testes unitários para controladores e modelos
+        $this->assertEquals($user->id, $result->id);
+        $this->assertDeleted($user);
+    }
 
-<a id="Testes_de_Integracao"></a>
+    public function testDeleteUserNotFound()
+    {
+        $result = $this->userService->deleteUser(999);
 
-### Testes de Integração
+        $this->assertNull($result);
+    }
+}
+```
 
-<a id="Escrevendo_testes_de_integracao_para_APIs_Rest"></a>
+4. Criar Fabrica de Usuários
+Se você ainda não tiver uma fábrica de usuários, crie uma para gerar dados de teste:
 
-#### Escrevendo testes de integração para APIs Rest
+```bash
+php artisan make:factory UserFactory --model=User
+```
 
-<a id="Utilizando_o_PHPUnit_para_testes_automatizados"></a>
+No arquivo database/factories/UserFactory.php, defina a fábrica:
 
-##### Utilizando o PHPUnit para testes automatizados
+```php
+<?php
 
-<a id="Desempenho_e_Segurança"></a>
+namespace Database\Factories;
 
-##  Desempenho e Segurança
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-<a id="Otimizando_Desempenho"></a>
+class UserFactory extends Factory
+{
+    protected $model = User::class;
 
-### Otimizando Desempenho
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'), // senha padrão
+            'remember_token' => Str::random(10),
+        ];
+    }
+}
+```
 
-<a id="Caching_no_Laravel"></a>
+5. Executar Testes
+Finalmente, execute os testes com o PHPUnit:
 
-#### Caching no Laravel
+```bash
+vendor/bin/phpunit
+```
 
-<a id="Melhorando_a_performance_da_API"></a>
-
-##### Melhorando a performance da API
-
-<a id="Segurança_em_APIs"></a>
-
-### Segurança em APIs
-
-<a id="Protegendo_contra_ataques_comuns"></a>
-
-#### Protegendo contra ataques comuns (SQL Injection, XSS, CSRF)
-
-<a id="Implementando_politicas_de_seguranca_e_boas_praticas"></a>
-
-##### Implementando políticas de segurança e boas práticas
+#### Conclusão
+Seguindo esses passos, você configurou testes unitários para o serviço UserService em Laravel, utilizando mocks para o banco de dados e validando a funcionalidade de cada método do serviço. Isso garante que a lógica de negócios no seu serviço funcione conforme esperado.
