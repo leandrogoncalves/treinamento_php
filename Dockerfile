@@ -6,6 +6,8 @@ RUN apk --no-cache add autoconf build-base libtool
 # Instale a extensão PCOV
 RUN pecl install pcov && docker-php-ext-enable pcov
 
+RUN apk add curl-dev openssl-dev
+
 # Instale a extensão MongoDB
 RUN pecl install mongodb
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini

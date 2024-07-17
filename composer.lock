@@ -4,27 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25ef64ba5067f31ddaf98914fcfe1bfc",
+    "content-hash": "461f443c5241f12dbf149572a456bbdc",
     "packages": [
         {
             "name": "mongodb/mongodb",
-            "version": "dev-master",
+            "version": "v1.19.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "9acbedded9d8b3d3500eef1de8a66b6fa7426711"
+                "reference": "9a42fd3f5a398e1aa3239d7d38d415e9e930f3e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/9acbedded9d8b3d3500eef1de8a66b6fa7426711",
-                "reference": "9acbedded9d8b3d3500eef1de8a66b6fa7426711",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/9a42fd3f5a398e1aa3239d7d38d415e9e930f3e3",
+                "reference": "9a42fd3f5a398e1aa3239d7d38d415e9e930f3e3",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.0",
                 "ext-hash": "*",
                 "ext-json": "*",
-                "ext-mongodb": "^1.19.0",
+                "ext-mongodb": "^1.18.0",
                 "php": "^7.4 || ^8.0",
                 "psr/log": "^1.1.4|^2|^3",
                 "symfony/polyfill-php80": "^1.27",
@@ -37,7 +37,6 @@
                 "symfony/phpunit-bridge": "^5.2",
                 "vimeo/psalm": "^5.13"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -80,9 +79,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mongodb/mongo-php-library/issues",
-                "source": "https://github.com/mongodb/mongo-php-library/tree/master"
+                "source": "https://github.com/mongodb/mongo-php-library/tree/v1.19"
             },
-            "time": "2024-06-27T16:13:11+00:00"
+            "time": "2024-07-17T12:01:19+00:00"
         },
         {
             "name": "psr/log",
@@ -1955,7 +1954,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "mongodb/mongodb": 20
+        "phpunit/phpunit": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
