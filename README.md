@@ -1504,6 +1504,72 @@ class ActivityLogger {
     }
 ```
 
+Outro exemplo:
+
+```php
+// Single Responsibility Principle Violation
+class Report
+{
+    public function getTitle()
+    {
+        return 'Report Title';
+    }
+
+    public function getDate()
+    {
+        return '2016-04-21';
+    }
+
+    public function getContents()
+    {
+        return [
+            'title' => $this->getTitle(),
+            'date' => $this->getDate(),
+        ];
+    }
+
+    public function formatJson()
+    {
+        return json_encode($this->getContents());
+    }
+}
+
+// Refactored
+class Report
+{
+    public function getTitle()
+    {
+        return 'Report Title';
+    }
+
+    public function getDate()
+    {
+        return '2016-04-21';
+    }
+
+    public function getContents()
+    {
+        return [
+            'title' => $this->getTitle(),
+            'date' => $this->getDate(),
+        ];
+    }
+}
+
+interface ReportFormattable
+{
+    public function format(Report $report);
+}
+
+class JsonReportFormatter implements ReportFormattable
+{
+    public function format(Report $report)
+    {
+        return json_encode($report->getContents());
+    }
+}
+```
+
 #### Open/Closed Principle (OCP):
 
 Entidades de software devem estar abertas para extensão, mas fechadas para modificação.
@@ -1512,100 +1578,65 @@ Exemplo: Usar herança ou interfaces para permitir que novos tipos de autentica�
 
 
 ```php
-// Exemplo inicial sem respeitar o OCP
-interface Shape {
-    public function calculateArea();
-}
-class Rectangle implements Shape {
-    public $width;
-    public $height;
-    public function __construct($width, $height) {
-        $this->width = $width;
-        $this->height = $height;
-    }
-    public function calculateArea() {
-        return $this->width * $this->height;
+?php
+// Open Closed Principle Violation
+class Programmer
+{
+    public function code()
+    {
+        return 'coding';
     }
 }
-class Circle implements Shape {
-    public $radius;
-    public function __construct($radius) {
-        $this->radius = $radius;
-    }
-    public function calculateArea() {
-        return pi() * pow($this->radius, 2);
-    }
-}
-// Versão refatorada respeitando o OCP
-interface Shape {
-    public function calculateArea();
-}
-class Rectangle implements Shape {
-    public $width;
-    public $height;
-    public function __construct($width, $height) {
-        $this->width = $width;
-        $this->height = $height;
-    }
-    public function calculateArea() {
-        return $this->width * $this->height;
+
+class Tester
+{
+    public function test()
+    {
+        return 'testing';
     }
 }
-class Circle implements Shape {
-    public $radius;
-    public function __construct($radius) {
-        $this->radius = $radius;
-    }
-    public function calculateArea() {
-        return pi() * pow($this->radius, 2);
-    }
-}
-// Versão refatorada respeitando o OCP
-interface Shape {
-    public function calculateArea();
-}
-class Rectangle implements Shape {
-    public $width;
-    public $height;
-    public function __construct($width, $height) {
-        $this->width = $width;
-        $this->height = $height;
-    }
-    public function calculateArea() {
-        return $this->width * $this->height;
+
+class ProjectManagement
+{
+    public function process($member)
+    {
+        if ($member instanceof Programmer) {
+            $member->code();
+        } elseif ($member instanceof Tester) {
+            $member->test();
+        };
+
+        throw new Exception('Invalid input member');
     }
 }
-class Circle implements Shape {
-    public $radius;
-    public function __construct($radius) {
-        $this->radius = $radius;
-    }
-    public function calculateArea() {
-        return pi() * pow($this->radius, 2);
+
+// Refactored
+interface Workable
+{
+    public function work();
+}
+
+class Programmer implements Workable
+{
+    public function work()
+    {
+        return 'coding';
     }
 }
-// Versão refatorada respeitando o OCP
-interface Shape {
-    public function calculateArea();
-}
-class Rectangle implements Shape {
-    public $width;
-    public $height;
-    public function __construct($width, $height) {
-        $this->width = $width;
-        $this->height = $height;
-    }
-    public function calculateArea() {
-        return $this->width * $this->height;
+
+class Tester implements Workable
+{
+    public function work()
+    {
+        return 'testing';
     }
 }
-class Circle implements Shape {
-    public $radius;
-    public function __construct($radius) {
-        $this->radius = $radius;
-    }
-    public function calculateArea() {
-        return pi() * pow($this->radius, 2);
+
+class ProjectManagement
+{
+    public function process(Workable $member)
+    {
+        return $member->work();
     }
 }
 ```
@@ -1644,6 +1675,77 @@ class Ostrich implements Bird {
 }
 Interface Segregation Principle (ISP):
 ```
+
+Outro exemplo:
+
+```php
+// Liskov Substitution Principle Violation
+// The Rectangle - Square problem
+class Rectangle
+{
+    protected $width;
+    protected $height;
+
+    public function setHeight($height)
+    {
+        $this->height = $height;
+    }
+
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
+
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    public function area()
+    {
+         return $this->height * $this->width;
+    }
+}
+
+class Square extends Rectangle
+{
+    public function setHeight($value)
+    {
+        $this->width = $value;
+        $this->height = $value;
+    }
+
+    public function setWidth($value)
+    {
+        $this->width = $value;
+        $this->height = $value;
+    }
+}
+
+class RectangleTest
+{
+    private $rectangle;
+
+    public function __construct(Rectangle $rectangle)
+    {
+        $this->rectangle = $rectangle;
+    }
+
+    public function testArea()
+    {
+        $this->rectangle->setHeight(2);
+        $this->rectangle->setWidth(3);
+        // Expect rectangle's area to be 6
+    }
+}
+```
+
+#### Interface Segregation Principle (ISP)
 
 Uma classe não deve ser forçada a implementar interfaces que não utiliza.
 
@@ -1686,6 +1788,105 @@ class Dog implements Feedable {
 }
 ```
 
+Outro exemplo:
+
+```php
+<?php
+
+// Interface Segregation Principle Violation
+interface Workable
+{
+    public function canCode();
+    public function code();
+    public function test();
+}
+
+class Programmer implements Workable
+{
+    public function canCode()
+    {
+        return true;
+    }
+
+    public function code()
+    {
+        return 'coding';
+    }
+
+    public function test()
+    {
+        return 'testing in localhost';
+    }
+}
+
+class Tester implements Workable
+{
+    public function canCode()
+    {
+        return false;
+    }
+
+    public function code()
+    {
+         throw new Exception('Opps! I can not code');
+    }
+
+    public function test()
+    {
+        return 'testing in test server';
+    }
+}
+
+class ProjectManagement
+{
+    public function processCode(Workable $member)
+    {
+        if ($member->canCode()) {
+            $member->code();
+        }
+    }
+}
+
+// Refactored
+interface Codeable
+{
+    public function code();
+}
+
+interface Testable
+{
+    public function test();
+}
+
+class Programmer implements Codeable, Testable
+{
+    public function code()
+    {
+        return 'coding';
+    }
+
+    public function test()
+    {
+        return 'testing in localhost';
+    }
+}
+
+class Tester implements Testable
+{
+    public function test()
+    {
+        return 'testing in test server';
+    }
+}
+
+class ProjectManagement
+{
+    public function processCode(Codeable $member)
+    {
+        $member->code();
+    }
+}
+```
 
 #### Dependency Inversion Principle (DIP):
 
@@ -1739,6 +1940,59 @@ class AdvancedSwitch {
 $bulb = new BetterLightBulb();
 $switch = new AdvancedSwitch($bulb);
 echo $switch->operate(); // Saída: BetterLightBulb: on
+```
+
+Outro Exemplo:
+
+```php
+<?php
+// Dependency Inversion Principle Violation
+class Mailer
+{
+
+}
+
+class SendWelcomeMessage
+{
+    private $mailer;
+
+    public function __construct(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+}
+
+// Refactored
+interface Mailer
+{
+    public function send();
+}
+
+class SmtpMailer implements Mailer
+{
+    public function send()
+    {
+
+    }
+}
+
+class SendGridMailer implements Mailer
+{
+    public function send()
+    {
+
+    }
+}
+
+class SendWelcomeMessage
+{
+    private $mailer;
+
+    public function __construct(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+}
 ```
 
 ## Clean Code e Refatoração
