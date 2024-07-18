@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"Unit\\Entities\\DogTest::testShouldMakeSoundSuccessfuly":0.001,"Unit\\Entities\\DogTest::testShouldDoRunningSuccessfuly":0,"Unit\\Entities\\FuscaTest::testFuscaIsInstanceOfFusca":0}}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+    cacheResultFile=".phpunit.cache/test-results"
+    executionOrder="depends,defects"
+    requireCoverageMetadata="true"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutTodoAnnotatedTests="true"
+    failOnRisky="true"
+    failOnWarning="true"
+    colors="true"
+>
+    <testsuites>
+        <testsuite name="default">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <logging>
+        <junit outputFile="phpunit.report.xml" />
+    </logging>
+
+    <coverage>
+        <include>
+            <directory suffix=".php">app</directory>
+        </include>
+        <report>
+            <clover outputFile="phpunit.coverage.xml" />
+        </report>
+    </coverage>
+
+    <php>
+        <env name="PHPUNIT_PRETTY_PRINT_PROGRESS" value="true" />
+    </php>
+
+</phpunit>
