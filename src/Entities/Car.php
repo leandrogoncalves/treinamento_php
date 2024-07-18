@@ -29,12 +29,14 @@ abstract class Car implements CarInterface {
     $this->color = $color;
   }
 
-  public function show(): void {
-      echo "Nosso carro se chama {$this->name}";
-      echo PHP_EOL."<br>";
-      echo "Nosso carro é da marca {$this->brand}";
-      echo PHP_EOL."<br>";
-      echo "Nosso carro é da cor {$this->color}";
+  public function show(): string {
+      $output = '';
+      $output .= "Nosso carro se chama {$this->name}";
+      $output .= PHP_EOL."<br>";
+      $output .= "Nosso carro é da marca {$this->brand}";
+      $output .= PHP_EOL."<br>";
+      $output .= "Nosso carro é da cor {$this->color}";
+      return $output;
   }
 
   public function isCar(): bool {

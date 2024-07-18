@@ -8,7 +8,7 @@ interface CarInterface {
 
     public function setColor($color): void;
 
-    public function show(): void;
+    public function show(): string;
 
     public function isCar(): bool;
 

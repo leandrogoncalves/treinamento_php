@@ -9,9 +9,9 @@ class Fusca extends Car{
         $this->name = 'Fusca';
     }
 
-    public function show(): void {
+    public function show(): string {
         $this->color = 'black';
-        parent::show();
+        return parent::show();
     }
 
     public function drive(): void {
