@@ -1984,7 +1984,7 @@ Execute o seguinte comando no terminal:
 ```sh
 sudo apt-get install libpcre2-dev && \
 pecl install pcov && \
-composer require --dev phpunit/phpunit
+composer require --dev phpunit/phpunit ^9.5.10
 ```
 
 Estrutura de diretórios: Organize seus arquivos de teste e de código fonte de maneira clara.
@@ -2007,12 +2007,42 @@ Exemplo de phpunit.xml básico:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php">
-    <testsuites>
-        <testsuite name="Testes Unitários">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.3/phpunit.xsd"
+bootstrap="vendor/autoload.php" 
+cacheResultFile=".phpunit.cache/test-results" 
+executionOrder="depends,defects" 
+beStrictAboutOutputDuringTests="true" 
+beStrictAboutTodoAnnotatedTests="true" 
+failOnRisky="true" 
+failOnWarning="true" 
+colors="true"
+printerClass="Sempro\\PHPUnitPrettyPrinter\\PrettyPrinter"
+>
+
+  <testsuites>
+    <testsuite name="default">
+      <directory suffix="Test.php">./tests</directory>
+    </testsuite>
+  </testsuites>
+
+  <logging>
+    <junit outputFile="phpunit.report.xml"/>
+  </logging>
+
+  <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
+    <include>
+        <directory suffix=".php">src/</directory>
+    </include>
+    <report>
+        <clover outputFile="phpunit.coverage.xml" />
+    </report>
+  </coverage>
+
+  <php>
+    <env name="PHPUNIT_PRETTY_PRINT_PROGRESS" value="true"/>
+  </php>
+
 </phpunit>
 ```
 

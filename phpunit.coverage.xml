@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1721311111">
-  <project timestamp="1721311111">
+<coverage generated="1721311390">
+  <project timestamp="1721311390">
     <file name="/app/src/Entities/Abstractions/AnimalAbstract.php">
       <class name="App\Entities\Abstractions\AnimalAbstract" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="4" coveredelements="0"/>

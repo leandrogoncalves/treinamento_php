@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.001906">
-    <testsuite name="default" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.001906">
-      <testsuite name="Unit\Entities\DogTest" file="/app/tests/Unit/Entities/DogTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.001530">
-        <testcase name="testShouldMakeSoundSuccessfuly" class="Unit\Entities\DogTest" classname="Unit.Entities.DogTest" file="/app/tests/Unit/Entities/DogTest.php" line="21" assertions="1" time="0.001439"/>
-        <testcase name="testShouldDoRunningSuccessfuly" class="Unit\Entities\DogTest" classname="Unit.Entities.DogTest" file="/app/tests/Unit/Entities/DogTest.php" line="29" assertions="1" time="0.000092"/>
+  <testsuite name="" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.001741">
+    <testsuite name="default" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.001741">
+      <testsuite name="Unit\Entities\DogTest" file="/app/tests/Unit/Entities/DogTest.php" tests="2" assertions="2" errors="0" warnings="0" failures="0" skipped="0" time="0.001475">
+        <testcase name="testShouldMakeSoundSuccessfuly" class="Unit\Entities\DogTest" classname="Unit.Entities.DogTest" file="/app/tests/Unit/Entities/DogTest.php" line="21" assertions="1" time="0.001417"/>
+        <testcase name="testShouldDoRunningSuccessfuly" class="Unit\Entities\DogTest" classname="Unit.Entities.DogTest" file="/app/tests/Unit/Entities/DogTest.php" line="29" assertions="1" time="0.000058"/>
       </testsuite>
-      <testsuite name="Unit\Entities\FuscaTest" file="/app/tests/Unit/Entities/FuscaTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000376">
-        <testcase name="testFuscaIsInstanceOfFusca" class="Unit\Entities\FuscaTest" classname="Unit.Entities.FuscaTest" file="/app/tests/Unit/Entities/FuscaTest.php" line="22" assertions="1" time="0.000376"/>
+      <testsuite name="Unit\Entities\FuscaTest" file="/app/tests/Unit/Entities/FuscaTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.000265">
+        <testcase name="testFuscaIsInstanceOfFusca" class="Unit\Entities\FuscaTest" classname="Unit.Entities.FuscaTest" file="/app/tests/Unit/Entities/FuscaTest.php" line="22" assertions="1" time="0.000265"/>
       </testsuite>
     </testsuite>
   </testsuite>
