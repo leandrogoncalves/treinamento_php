@@ -9,7 +9,6 @@ beStrictAboutTodoAnnotatedTests="true"
 failOnRisky="true" 
 failOnWarning="true" 
 colors="true"
-printerClass="Sempro\\PHPUnitPrettyPrinter\\PrettyPrinter"
 >
 
   <testsuites>

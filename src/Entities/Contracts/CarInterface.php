@@ -12,6 +12,6 @@ interface CarInterface {
 
     public function isCar(): bool;
 
-    public function drive(): void;
+    public function drive(): string;
 
 }

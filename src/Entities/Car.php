@@ -43,5 +43,5 @@ abstract class Car implements CarInterface {
     return true;
   }
 
-  abstract public function drive(): void;
+  abstract public function drive(): string;
 }

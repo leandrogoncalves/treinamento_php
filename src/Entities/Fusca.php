@@ -14,9 +14,10 @@ class Fusca extends Car{
         return parent::show();
     }
 
-    public function drive(): void {
-        echo PHP_EOL;
-        echo "O carro {$this->name} está dirigindo";
+    public function drive(): string {
+        $output = PHP_EOL;
+        $output .= "O carro {$this->name} está dirigindo";
+        return $output;
     }
 
 }

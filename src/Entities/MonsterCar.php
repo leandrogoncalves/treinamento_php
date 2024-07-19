@@ -21,10 +21,11 @@ class MonsterCar implements CarInterface {
         $this->color = $color . ' Monster';
     }
 
-    public function show(): void
+    public function show(): string
     {
-        echo PHP_EOL;
-        echo "Este é um carro monstro";
+        $output = PHP_EOL;
+        $output .= "Este é um carro monstro";
+        return $output;
     }
 
     public function isCar(): bool
@@ -32,10 +33,11 @@ class MonsterCar implements CarInterface {
         return true;
     }
 
-    public function drive(): void
+    public function drive(): string
     {
-        echo PHP_EOL;
-        echo "Este é um carro pula e dá mortal";
+        $output = PHP_EOL;
+        $output .= "Este é um carro pula e dá mortal";
+        return $output;
     }
 
 }

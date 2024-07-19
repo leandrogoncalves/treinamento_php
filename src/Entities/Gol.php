@@ -8,7 +8,7 @@ class Gol extends Car {
         parent::__construct($brand, $color);
         $this->name = 'Gol';
     }
-    public function drive(): void {
+    public function drive(): string {
         echo PHP_EOL;
         echo "O carro {$this->name} está dirigindo";
     }
