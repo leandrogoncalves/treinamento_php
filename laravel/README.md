@@ -1072,7 +1072,8 @@ Seguindo esses passos, você configurou um recurso de API em Laravel com operaç
 Se ainda não estiver instalado, instale o PHPUnit, que já vem por padrão com Laravel:
 
 ```bash
-composer require --dev phpunit/phpunit
+composer require --dev phpunit/phpunit '^9.5.19'
+composer require --dev mockery/mockery
 ```
 
 2. Configurar PHPUnit
