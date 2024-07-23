@@ -3,62 +3,68 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function index()
     {
-
+        return response()->json($this->userService->getAllUsers(), 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $result = $this->userService->createUser($request);
+
+        if (is_array($result) && array_key_exists('email', $result)) {
+            return response()->json($result, 400);
+        }
+
+        return response()->json($result, 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $user = $this->userService->getUserById($id);
+
+        if (is_null($user)) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json($user, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $result = $this->userService->updateUser($request, $id);
+
+        if (is_null($result)) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        if (is_array($result) && array_key_exists('email', $result)) {
+            return response()->json($result, 400);
+        }
+
+        return response()->json($result, 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $result = $this->userService->deleteUser($id);
+
+        if (is_null($result)) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json(null, 204);
     }
 }
