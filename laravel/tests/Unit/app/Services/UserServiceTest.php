@@ -5,17 +5,20 @@ namespace Tests\Unit\app\Services;
 use Tests\TestCase;
 use App\Services\UserService;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Mockery;
 
 class UserServiceTest extends TestCase
 {
+    use RefreshDatabase;
 
     protected UserService $userService;
 
     protected function setUp(): void
     {
         parent::setUp();
+        $this->artisan('migrate');
         $this->userService = app(UserService::class);
     }
 
@@ -60,5 +63,11 @@ class UserServiceTest extends TestCase
         $userMock->shouldReceive('create')->andReturn($expectedUser);
 
         $this->assertEquals($expectedUser, $this->userService->createUser($requestMock));
+    }
+
+    public function tearDown(): void
+    {
+        $this->artisan('migrate:reset');
+        parent::tearDown();
     }
 }
