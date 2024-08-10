@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\app\Services;
+namespace Unit\Services;
 
 use Tests\TestCase;
 use App\Services\UserService;
@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Mockery;
+
 
 class UserServiceTest extends TestCase
 {
@@ -24,7 +25,7 @@ class UserServiceTest extends TestCase
 
     /**
      * @testdox O teste deve retornar uma lista de usuários com sucesso
-     *
+     * @covers App\Services\UserService::getAllUsers
      * @return void
      */
     public function testShouldReturnUserList(): void
@@ -47,9 +48,14 @@ class UserServiceTest extends TestCase
         $userMock = Mockery::mock('alias:'.User::class);
         $userMock->shouldReceive('all')->andReturn($userListMock);
 
-        $this->assertEquals($userListMock, $this->userService->getAllUsers());
+        self::assertEquals($userListMock, $this->userService->getAllUsers());
     }
 
+    /**
+     * @testdox O teste deve criar um novo usuário com sucesso
+     * @covers App\Services\UserService::createUser
+     * @return void
+     */
     public function testShouldCreateUserSuccessfully(): void
     {
         $expectedUser = [
@@ -62,7 +68,7 @@ class UserServiceTest extends TestCase
         $userMock = Mockery::mock('alias:'.User::class);
         $userMock->shouldReceive('create')->andReturn($expectedUser);
 
-        $this->assertEquals($expectedUser, $this->userService->createUser($requestMock));
+        self::assertEquals($expectedUser, $this->userService->createUser($requestMock));
     }
 
     public function tearDown(): void

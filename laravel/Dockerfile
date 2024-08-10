@@ -9,6 +9,8 @@ RUN pecl channel-update pecl.php.net && pecl install -f uopz
 RUN pecl install pcov && docker-php-ext-enable pcov
 RUN docker-php-ext-enable uopz
 
+RUN echo "pcov.directory=/app" >> /usr/local/etc/php/conf.d/docker-php-ext-pcov.ini
+
 RUN apk add curl-dev openssl-dev
 
 # Instale a extensão Mysql

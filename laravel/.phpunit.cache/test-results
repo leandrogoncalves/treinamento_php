@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"Tests\\Unit\\ExampleTest::test_that_true_is_true":0,"Tests\\Unit\\Services\\UserServiceTest::testShouldReturnUserList":0.831,"Tests\\Unit\\Services\\UserServiceTest::testShouldCreateUserSuccessfully":0.675,"Tests\\Feature\\ExampleTest::test_the_application_returns_a_successful_response":0.08}}
